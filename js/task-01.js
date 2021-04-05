@@ -1,8 +1,16 @@
-const ulCategories = document.querySelectorAll('.item');
-const titles = document.querySelectorAll('.item h2');
+const categoriesRef = document.querySelectorAll(".item");
 
-console.log(`У списку ${ulCategories.length} категорії.`);
-for (const title of titles) {
-    console.log(`Категорія: ${title.textContent}`);
-    console.log(`Кількість елементів: ${title.nextElementSibling.children.length}`);
-}
+const printCategoriesQuantity = (categories) =>
+  console.log(`У списку ${categories.length} категорії.`);
+
+const titlesRef = document.querySelectorAll(".item h2");
+
+const printCategoriesInfo = (titles) =>
+  titles.forEach((title) =>
+    console.log(
+      `Категорія: ${title.textContent}\nКількість елементів: ${title.nextElementSibling.children.length}`
+    )
+  );
+
+printCategoriesQuantity(categoriesRef);
+printCategoriesInfo(titlesRef);
