@@ -17,22 +17,12 @@ const images = [
 ];
 
 const galleryRef = document.querySelector("#gallery");
-galleryRef.style.display = "flex";
-galleryRef.style.justifyContent = "space-around";
+galleryRef.style.listStyle = "none";
+galleryRef.style.padding = 0;
 
 const makeListElement = ({ url, alt }) => {
-  const listElement = document.createElement("li");
-  listElement.style.listStyle = "none";
-
-  const imageElement = document.createElement("img");
-  imageElement.src = url;
-  imageElement.alt = alt;
-  imageElement.height = 300;
-  listElement.appendChild(imageElement);
-
-  return listElement;
+  return `<li><img src=${url} alt= ${alt} width=100%></li>`;
 };
 
-const elementsList = images.map(makeListElement);
-
-galleryRef.append(...elementsList);
+const elementsList = images.map(makeListElement).join("");
+galleryRef.insertAdjacentHTML("beforeend", elementsList);
