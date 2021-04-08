@@ -1,10 +1,10 @@
 const inputRef = document.querySelector("#name-input");
 const outputRef = document.querySelector("#name-output");
 
-const magic = () => {
+const printInput = () => {
   inputRef.value
     ? (outputRef.textContent = inputRef.value)
     : (outputRef.textContent = "незнайомець");
 };
 
-inputRef.addEventListener("input", magic);
+inputRef.addEventListener("input", printInput);
