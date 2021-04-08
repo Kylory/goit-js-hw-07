@@ -1,9 +1,8 @@
 const categoriesRef = document.querySelectorAll(".item");
+const titlesRef = document.querySelectorAll(".item h2");
 
 const printCategoriesQuantity = (categories) =>
   console.log(`У списку ${categories.length} категорії.`);
-
-const titlesRef = document.querySelectorAll(".item h2");
 
 const printCategoriesInfo = (titles) =>
   titles.forEach((title) =>

@@ -17,11 +17,9 @@ const images = [
 ];
 
 const galleryRef = document.querySelector("#gallery");
-galleryRef.style.listStyle = "none";
-galleryRef.style.padding = 0;
 
 const makeListElement = ({ url, alt }) => {
-  return `<li><img src=${url} alt= ${alt} width=100%></li>`;
+  return `<li><img src=${url} alt= ${alt}></li>`;
 };
 
 const elementsList = images.map(makeListElement).join("");
