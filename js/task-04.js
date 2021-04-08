@@ -9,13 +9,11 @@ const incrementButtonRef = document.querySelector(
 let counterValue = +counterRef.textContent;
 
 const onIncrementButtonClick = () => {
-  counterValue += 1;
-  counterRef.textContent = counterValue;
+  counterRef.textContent = counterValue += 1;
 };
 
 const onDecrementButtonClick = () => {
-  counterValue -= 1;
-  counterRef.textContent = counterValue;
+  counterRef.textContent = counterValue -= 1;
 };
 
 decrementButtonRef.addEventListener("click", onDecrementButtonClick);
