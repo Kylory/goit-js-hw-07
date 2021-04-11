@@ -5,7 +5,7 @@ const destroyButtonRef = document.querySelector(
   'button[data-action="destroy"]'
 );
 
-function createBoxes() {
+const createBoxes = () => {
   if (inputRef.value > 0) {
     const divBox = document.createElement("div");
     divBox.setAttribute("id", "boxes");
@@ -25,7 +25,7 @@ function createBoxes() {
     boxesRef.replaceWith(divBox);
     boxesRef = document.querySelector("#boxes");
   }
-}
+};
 
 const destroyBoxes = () => {
   boxesRef.innerHTML = "";
