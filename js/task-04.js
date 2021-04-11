@@ -5,16 +5,35 @@ const decrementButtonRef = document.querySelector(
 const incrementButtonRef = document.querySelector(
   'button[data-action="increment"]'
 );
+const resetCounterButtonRef = document.querySelector(
+  'button[data-action="reset-counter"]'
+);
 
-let counterValue = +counterRef.textContent;
-
-const onIncrementButtonClick = () => {
-  counterRef.textContent = counterValue += 1;
+const counter = {
+  value: +counterRef.textContent,
+  onIncrementButtonClick() {
+    this.value += 1;
+    counterRef.textContent = this.value;
+  },
+  onDecrementButtonClick() {
+    this.value -= 1;
+    counterRef.textContent = this.value;
+  },
+  onResetCounterButtonClick() {
+    this.value = 0;
+    counterRef.textContent = this.value;
+  },
 };
 
-const onDecrementButtonClick = () => {
-  counterRef.textContent = counterValue -= 1;
-};
-
-decrementButtonRef.addEventListener("click", onDecrementButtonClick);
-incrementButtonRef.addEventListener("click", onIncrementButtonClick);
+incrementButtonRef.addEventListener(
+  "click",
+  counter.onIncrementButtonClick.bind(counter)
+);
+decrementButtonRef.addEventListener(
+  "click",
+  counter.onDecrementButtonClick.bind(counter)
+);
+resetCounterButtonRef.addEventListener(
+  "click",
+  counter.onResetCounterButtonClick.bind(counter)
+);

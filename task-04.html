@@ -13,6 +13,12 @@
         color: #424242;
         line-height: 1.5;
       }
+
+      button[data-action="reset-counter"] {
+        width: 77px;
+        margin-top: 10px;
+        background-color: rgb(228, 180, 180);
+      }
     </style>
   </head>
   <body>
@@ -21,6 +27,8 @@
       <button type="button" data-action="decrement">-1</button>
       <span id="value">0</span>
       <button type="button" data-action="increment">+1</button>
+      <br />
+      <button type="button" data-action="reset-counter">Reset counter</button>
     </div>
     <script src="js/task-04.js" type="module"></script>
   </body>
