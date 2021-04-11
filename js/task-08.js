@@ -1,11 +1,36 @@
-// Напиши скрипт створення і очищення колекції елементів. Користувач вводить кількість елементів в input і натискає кнопку Створити, після чого рендериться колекція. При натисканні на кнопку Очистити, колекція елементів очищається.
+let boxesRef = document.querySelector("#boxes");
+const inputRef = document.querySelector("#controls input");
+const renderButtonRef = document.querySelector('button[data-action="render"]');
+const destroyButtonRef = document.querySelector(
+  'button[data-action="destroy"]'
+);
 
-// Створи функцію createBoxes(amount), яка приймає 1 параметр amount - число. Функція створює стільки div, скільки вказано в amount і додає їх в div#boxes.
+function createBoxes() {
+  if (inputRef.value > 0) {
+    const divBox = document.createElement("div");
+    divBox.setAttribute("id", "boxes");
 
-// Кожен створений div:
+    const randomColor = () => {
+      const rgbNum = () => Math.floor(Math.random() * 256);
+      const r = rgbNum();
+      const g = rgbNum();
+      const b = rgbNum();
+      return `rgb(${r},${g},${b})`;
+    };
 
-//     Має випадковий rgb колір фону
-//     Розміри найпершого div - 30px на 30px
-//     Кожен наступний div після першого, повинен бути ширше і вище попереднього на   10px
+    for (let i = 30; i < inputRef.value * 10 + 30; i += 10) {
+      const boxElement = `<div style = width:${i}px;height:${i}px;background-color:${randomColor()};margin:10px></div>`;
+      divBox.insertAdjacentHTML("beforeend", boxElement);
+    }
+    boxesRef.replaceWith(divBox);
+    boxesRef = document.querySelector("#boxes");
+  }
+}
 
-// Створи функцію destroyBoxes(), яка очищає div#boxes.
+const destroyBoxes = () => {
+  boxesRef.innerHTML = "";
+  inputRef.value = "";
+};
+
+renderButtonRef.addEventListener("click", createBoxes);
+destroyButtonRef.addEventListener("click", destroyBoxes);
